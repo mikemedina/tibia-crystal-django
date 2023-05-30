@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgres:
+    build:
+      context: ./docker/postgres
+      dockerfile: docker/postgres/Dockerfile
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=tibia
+      - POSTGRES_PASSWORD=clicky
+      - POSTGRES_DB=crystal
+
+  django:
+    build:
+      context: ./crystal
+      dockerfile: docker/django/Dockerfile
+    ports:
+      - '8000:8000'
+    depends_on:
+      - postgres
