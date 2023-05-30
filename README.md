@@ -10,54 +10,26 @@ To get started with the Tibia Utility Django back-end, follow the instructions b
 
 ### Prerequisites
 
-- Docker
+- Git, Docker Desktop, and Docker Compose
 
-### Starting the PostgreSQL Container
+### Build the PostgreSQL Container
 
 1. Ensure Docker is installed on your system.
 
 2. Clone this repository to your local machine.
 
-3. Navigate to the project's root directory.
+3. In the terminal, go to the project's root directory.
 
-4. In the terminal, go to the `docker/postgres` directory:
-
-   ```bash
-   cd docker/postgres
-   ```
-
-5. Build the PostgreSQL image and start the container:
-
-   ```bash
-   docker build -t tibia-postgres .
-   docker run -d 
-     --name tibia-postgres 
-     -p 5432:5432 
-     -v "${pwd}/init.sql:/docker-entrypoint-initdb.d/init.sql" 
-     -e POSTGRES_USER=tibia 
-     -e POSTGRES_PASSWORD=clicky 
-     -e POSTGRES_DB=crystal 
-     tibia-postgres:latest
-   ```
-   
-This command will build the PostgreSQL image and start the container, initializing the database with the init.sql script.
-
-### Starting the Django Backend
-
-1. Make sure the PostgreSQL container is running.
-
-2. In the terminal, go to the project's root directory.
-
-3. Build the Django backend image and start the container:
+4. Use docker-compose to provision the database and launch the app
 
    ```bash
    docker-compose up
    ```
    
-This command will build the Django backend image and start the container, linking it to the PostgreSQL container.
+This command will provision the database container, build the Django backend, and start the backend container, linking it to the PostgreSQL container.
 
-
-4. Once the Django container is up and running, you can access the application at http://localhost:8000.
+5. Once the Django container is up and running, you can access the application at http://localhost:8000/spells
+   or the admin page at http://localhost:8000/admin. The default admin credentials are tibia/clicky
 
 
 ### Utilities
