@@ -78,8 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'crystal',
-        'USER': 'tibia',  # Optional
-        'PASSWORD': 'clicky',  # Optional
+        'USER': 'tibia',
+        'PASSWORD': 'clicky',
+        'HOST': 'postgres',
+        'PORT': '5432',
     }
 }
 
