@@ -1,0 +1,30 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+
+# Secret Key
+.secret_key
+
+# Development
+*.env
+.env.local
+.env.dev
+.env.test
+
+# Dependency management
+pip-wheel-metadata/
+env/
+
+# IDE-specific files/directories
+.idea/
+.vscode/
+
+# Testing
+htmlcov/
+.coverage
+.coverage.*
+.cache/
