@@ -7,6 +7,3 @@ ENV POSTGRES_DB crystal
 
 # Copy the initialization script to the Docker image
 COPY init.sql /docker-entrypoint-initdb.d/
-
-# Start the PostgreSQL server
-CMD ["postgres"]

@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'crystal',
         'USER': 'tibia',
         'PASSWORD': 'clicky',
-        'HOST': 'postgres',
+        'HOST': 'crystal-postgres',
         'PORT': '5432',
     }
 }

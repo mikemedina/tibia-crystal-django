@@ -1,6 +1,7 @@
 version: '3'
 services:
   postgres:
+    container_name: crystal-postgres
     build:
       context: ./docker/postgres
       dockerfile: Dockerfile
@@ -14,10 +15,16 @@ services:
       - POSTGRES_DB=crystal
 
   django:
+    container_name: crystal-django
     build:
-      context: ./crystal
-      dockerfile: ../docker/django/Dockerfile
+      context: .
+      dockerfile: ./docker/django/Dockerfile
     ports:
       - '8000:8000'
+    environment:
+      - DB_HOST=crystal-postgres
+      - DB_NAME=crystal
+      - DB_USER=tibia
+      - DB_PASSWORD=clicky
     depends_on:
       - postgres
